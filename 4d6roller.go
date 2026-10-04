@@ -38,7 +38,10 @@ func rollCal( a int16, b int16, c int16, d int16,) int16 {
 }
 func printrolls( arr []int16, total int){
     for i := 0; i < len(arr); i++ {
-        fmt.Printf("there is a %v in %v chance to roll a %v \n", arr[i], total, i +3)}
+	percent := (100*(float32(arr[i])/float32(total)))
+        fmt.Printf("there is a %v in %v chance to roll a %v = %v%%. \n", arr[i], total, i +3, percent)
+}
+
 }
 func graphArray(arr []int16, row int16, Xscrunch int16, Ystrech int){
     c := exec.Command("clear")
@@ -56,7 +59,7 @@ func graphArray(arr []int16, row int16, Xscrunch int16, Ystrech int){
             for x := 1; x <= Ystrech; x++{
                 fmt.Printf("%v", chr)}
         }
-        fmt.Printf("|\n")
+        fmt.Println("|")
         i = i -1
     }
 }
